@@ -32,8 +32,11 @@ void Player::Fire_Coord(Coord& coord)
 
 bool Player::operator==(Coord op2)
 {
-	if (Player::Coord.)
-	return false;
+	if ((Player::Coord::X = op2.X) && (Player::Coord::Y = op2.Y))
+		return true;
+	else
+		return false;
+	
 }
 
 

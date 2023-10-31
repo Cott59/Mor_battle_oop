@@ -25,16 +25,14 @@ public:
 class Player
 {
 private:
-	//bool Parking = false; // false=auto расстановка
-	//bool InputCoord = false; // ввод координат 
-	std::vector<Coord>Ship_Coords;
+	
 protected:
-	struct Coord{
+	struct Coord {
 		int X;
 		int Y;
 		bool Crash = false;
 	};
-
+	std::vector<Coord>Ship_Coords;
 public:
 	Player();
 	~Player();
@@ -60,7 +58,14 @@ public:
 
 };
 
-class  battleships : public DataInput
+
+
+
+
+
+
+
+class  battleships : public DataInput,public Player
 {
 public:
 	bool Position = false;
