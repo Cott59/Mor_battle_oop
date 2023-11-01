@@ -6,7 +6,7 @@
 #include <xkeycheck.h>
 
 #define SCREEN_WIDTH 50
-#define SCREEN_HEIGHT 50
+#define SCREEN_HEIGHT 20
 
 
 class DataInput {
@@ -20,7 +20,6 @@ public:
 
 
 };
-
 
 class Player
 {
@@ -36,14 +35,11 @@ protected:
 public:
 	Player();
 	~Player();
-	bool Search_Coord(Coord& coord);
+	/*bool Search_Coord(Coord& coord);
 	void Fire_Coord(Coord& coord);
-	bool operator==(Coord op2);
+	bool operator==(Coord op2);*/
 
 };
-
-
-
 
 class Menu :public DataInput {
 private:
@@ -58,13 +54,6 @@ public:
 
 };
 
-
-
-
-
-
-
-
 class  battleships : public DataInput,public Player
 {
 public:
@@ -77,4 +66,9 @@ public:
 	
 };
 
+class Show_Border :public DataInput
+{
+public:
 
+	void Border();
+};

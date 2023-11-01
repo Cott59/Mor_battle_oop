@@ -5,13 +5,13 @@
 
 int main() {
 	setlocale(LC_ALL, "Russian");
-	battleships b;
-	b.P1.Crash = true;
-	
+
+	Show_Border Brd;
+	Brd.Border();
 
 
 
 
-
+	_getch();
 	return 0;
 }

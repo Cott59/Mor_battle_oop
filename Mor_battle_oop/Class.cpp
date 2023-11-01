@@ -14,30 +14,30 @@ Player::~Player()
 {
 }
 
-bool Player::Search_Coord(Coord& coord)
-{
-	for (auto i = Ship_Coords.begin(); i = Ship_Coords.end(); ++i)
-		if (Ship_Coords[i] == coord)
-			return true;
-		else
-			return false;
-}
-
-void Player::Fire_Coord(Coord& coord)
-{
-	for (auto i = Ship_Coords.begin(); i = Ship_Coords.end(); ++i)
-		if (Ship_Coords[i] == coord)
-			Ship_Coords[i].Crash = true;
-}
-
-bool Player::operator==(Coord op2)
-{
-	if ((Player::Coord::X = op2.X) && (Player::Coord::Y = op2.Y))
-		return true;
-	else
-		return false;
-	
-}
+//bool Player::Search_Coord(Coord& coord)
+//{
+//	for (auto i = Ship_Coords.begin(); i = Ship_Coords.end(); ++i)
+//		if (Ship_Coords[i] == coord)
+//			return true;
+//		else
+//			return false;
+//}
+//
+//void Player::Fire_Coord(Coord& coord)
+//{
+//	for (auto i = Ship_Coords.begin(); i = Ship_Coords.end(); ++i)
+//		if (Ship_Coords[i] == coord)
+//			Ship_Coords[i].Crash = true;
+//}
+//
+//bool Player::operator==(Coord op2)
+//{
+//	if ((Player::Coord::X = op2.X) && (Player::Coord::Y = op2.Y))
+//		return true;
+//	else
+//		return false;
+//	
+//}
 
 
 
@@ -166,4 +166,21 @@ void battleships::Ship()
 	gotoxy(P2.X, P2.Y); std::cout << 'X';
 	gotoxy(P3.X, P3.Y); std::cout << 'X';
 	gotoxy(P4.X, P4.Y); std::cout << 'X';
+}
+
+void Show_Border::Border()
+{
+	for (int i = 0; i < SCREEN_HEIGHT; i++)
+		for (int j = 0; j < 5; j++) {
+			gotoxy(0 + j, i); std::cout << "+";
+		}
+
+	//for (int i = 0; i < SCREEN_HEIGHT; i++)
+	//	for (int j = 0; j < 5; j++) {
+	//		gotoxy(15 + j, i); std::cout << "+";
+	//	}
+	/*for (int i = 0; i < SCREEN_HEIGHT; i++)
+		for (int j = 0; j < 5; j++) {
+			gotoxy(20 + j, i); std::cout << "+";
+		}*/
 }
