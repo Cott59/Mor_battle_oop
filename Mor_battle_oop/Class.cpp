@@ -170,17 +170,29 @@ void battleships::Ship()
 
 void Show_Border::Border()
 {
-	for (int i = 0; i < SCREEN_HEIGHT; i++)
+
+	
+
+
+	for (int i = 0; i < 15; i++)
 		for (int j = 0; j < 5; j++) {
-			gotoxy(0 + j, i); std::cout << "+";
+			gotoxy(0 + j, i); std::cout << "+ ";
 		}
 
-	//for (int i = 0; i < SCREEN_HEIGHT; i++)
-	//	for (int j = 0; j < 5; j++) {
-	//		gotoxy(15 + j, i); std::cout << "+";
-	//	}
-	/*for (int i = 0; i < SCREEN_HEIGHT; i++)
+	for (int i = 0; i < 15; i++)
+		for (int j = 0; j < 2; j++) {
+			gotoxy(16 + j, i); std::cout << "+ ";
+		}
+	for (int i = 0; i < 15; i++)
 		for (int j = 0; j < 5; j++) {
-			gotoxy(20 + j, i); std::cout << "+";
-		}*/
+			gotoxy(29 + j, i); std::cout << "+ ";
+		}
+
+	for (int j = 0; j < SCREEN_WIDTH; j++) {
+		gotoxy(0 + j, 0); std::cout << "+ ";
+	}
+	for (int j = 0; j < SCREEN_WIDTH; j++) {
+		gotoxy(0 + j, 15); std::cout << "+ ";
+	}
+
 }

@@ -5,7 +5,7 @@
 #include <vector>
 #include <xkeycheck.h>
 
-#define SCREEN_WIDTH 50
+#define SCREEN_WIDTH 33
 #define SCREEN_HEIGHT 20
 
 
