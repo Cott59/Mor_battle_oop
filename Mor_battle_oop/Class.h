@@ -4,9 +4,11 @@
 #include <conio.h>
 #include <vector>
 #include <xkeycheck.h>
+#include "Ships.h"
 
-#define SCREEN_WIDTH 33
-#define SCREEN_HEIGHT 20
+#define SCREEN_WIDTH 100
+#define SCREEN_HEIGHT 30
+
 
 
 class DataInput {
@@ -21,10 +23,10 @@ public:
 
 };
 
-class Player
-{
+class Player {
 private:
-	
+	COORD Base_Point;
+
 protected:
 	struct Coord {
 		int X;
@@ -33,11 +35,9 @@ protected:
 	};
 	std::vector<Coord>Ship_Coords;
 public:
-	Player();
+	Player(int X, int Y);
 	~Player();
-	/*bool Search_Coord(Coord& coord);
-	void Fire_Coord(Coord& coord);
-	bool operator==(Coord op2);*/
+	COORD Get_Base_Point() { return Base_Point; }
 
 };
 
@@ -54,21 +54,16 @@ public:
 
 };
 
-class  battleships : public DataInput,public Player
+
+
+class Border_Play :public DataInput
 {
 public:
-	bool Position = false;
-	Coord P1, P2, P3, P4;
+	friend COORD Get_Base_Point();
+	void ShowBorder();
+	void Border_1();
+	void Border_2();
+	void Plean();
 
-	bool CreatePosition();
-	void Ship();
-	
-	
-};
 
-class Show_Border :public DataInput
-{
-public:
-
-	void Border();
 };

@@ -5,9 +5,9 @@
 #include <algorithm>
 #include <iterator>
 
-Player::Player()
+Player::Player(int X, int Y)
 {
-	
+	Base_Point.X = X, Base_Point.Y = Y;
 }
 
 Player::~Player()
@@ -40,13 +40,8 @@ Player::~Player()
 //}
 
 
-
-
-
-
 void Menu::inputData()
 {
-	
 		system("cls");
 		gotoxy(10, 5); std::cout << " -------------------------- ";
 		gotoxy(10, 6);  std::cout << " |        Player 1         | ";
@@ -62,8 +57,6 @@ void Menu::inputData()
 		else 
 			if(ch == '2')
 				PRK1 = true;
-		
-	
 		system("cls");
 		gotoxy(10, 5); std::cout << " -------------------------- ";
 		gotoxy(10, 6);  std::cout << " |        Player 2         | ";
@@ -87,14 +80,8 @@ void Menu::inputData()
 				else
 					if (ch == '2')
 						PRK2 = true;
-
 			}
-				
-
-
-
 		system("cls");
-
 }
 
 void DataInput::gotoxy(int x, int y) {
@@ -106,93 +93,80 @@ void DataInput::CheckPoint(int x, int y)
 {
 }
 
-bool battleships::CreatePosition()
+void Border_Play::ShowBorder()
 {
-	int x = 0, y = 0;
-	CheckPoint(x, y);
-	//gotoxy(x, y);
-	while (1) {
-		
-		P1.X = x;
-		P1.Y = y;
-		if (Position == true) {
-			P2.X = x + 1, P3.X = x + 2, P4.X = x + 3;
-			P2.Y = P3.Y = P4.Y = y;
-		}
-		else {
-			P2.Y = y + 1, P3.Y = y + 2, P4.Y = y + 3;
-			P2.X = P3.X = P4.X = x;
-		}
+	for (int i = 0; i < SCREEN_HEIGHT - 10; i++) {
+		for (int j = 0; j < 5; j++) {
 
-		Ship();
-		//system("cls");
-		if (_kbhit()) {
-			char ch = _getch();
-			if (ch == 80)
-				y++;
-			else
-				if (ch == 72)
-					y--;
-				else
-					if (ch == 75)
-						x--;
-					else
-						if (ch == 77)
-							x++;
-						else
-							if (ch == 8)
-								Position = 1;
-							else
-								if (ch == 28)
-									exit(1);
-									
+			gotoxy(0 + j, i); std::cout << "#";
+			gotoxy(34 + j, i); std::cout << "#";
+			gotoxy(68 + j, i); std::cout << "#";
+			
 		}
-
-		Sleep(50);
-		system("cls");
-
 	}
 
+	for (int i = 0; i < SCREEN_HEIGHT - 10; i++) {
+		for (int j = SCREEN_WIDTH - 1; j > SCREEN_WIDTH - 6; j--) {
+			gotoxy(0 + j, i); std::cout << "#";
+		}
+	}
 
+	for (int j = 0; j < SCREEN_WIDTH - 1; j++) {
+		gotoxy(j, 0); std::cout << "#";
+	}
+	for (int j = 0; j < SCREEN_WIDTH - 1; j++) {
+		gotoxy(j, 1); std::cout << "#";
+	}
+	for (int j = 0; j < SCREEN_WIDTH - 1; j++) {
+		gotoxy(j, 5); std::cout << "#";
+	}
+	for (int j = 0; j < SCREEN_WIDTH - 1; j++) {
+		gotoxy(j, 19); std::cout << "#";
+	}
+	gotoxy(15, 3); std::cout << "PLAYER 1";
+	gotoxy(49, 3); std::cout << "PLAYER 2";
 
-
-
-	return 1;
 }
 
-void battleships::Ship()
-{
-	gotoxy(P1.X, P1.Y); std::cout << 'X';
-	gotoxy(P2.X, P2.Y); std::cout << 'X';
-	gotoxy(P3.X, P3.Y); std::cout << 'X';
-	gotoxy(P4.X, P4.Y); std::cout << 'X';
+
+
+void Border_Play::Border_1() {
+	gotoxy(Bp.X + 1, Bp.Y);
+	for (int i = 1; i < 11; i++)
+		std::cout << ' ' << i;
 }
 
-void Show_Border::Border()
+void Border_Play::Border_2()
 {
-
-	
-
-
-	for (int i = 0; i < 15; i++)
-		for (int j = 0; j < 5; j++) {
-			gotoxy(0 + j, i); std::cout << "+ ";
+	for (int j = 1; j < 11; j++) {
+		gotoxy(Bp.X, Bp.Y + j);
+		switch (j) {
+		case 1: std::cout << 'A'; break;
+		case 2: std::cout << 'B'; break;
+		case 3: std::cout << 'C'; break;
+		case 4: std::cout << 'D'; break;
+		case 5: std::cout << 'E'; break;
+		case 6: std::cout << 'F'; break;
+		case 7: std::cout << 'G'; break;
+		case 8: std::cout << 'H'; break;
+		case 9: std::cout << 'I'; break;
+		case 10: std::cout << 'J'; break;
 		}
-
-	for (int i = 0; i < 15; i++)
-		for (int j = 0; j < 2; j++) {
-			gotoxy(16 + j, i); std::cout << "+ ";
-		}
-	for (int i = 0; i < 15; i++)
-		for (int j = 0; j < 5; j++) {
-			gotoxy(29 + j, i); std::cout << "+ ";
-		}
-
-	for (int j = 0; j < SCREEN_WIDTH; j++) {
-		gotoxy(0 + j, 0); std::cout << "+ ";
 	}
-	for (int j = 0; j < SCREEN_WIDTH; j++) {
-		gotoxy(0 + j, 15); std::cout << "+ ";
-	}
+}
 
+void Border_Play::Plean() {
+	for (int y = 1; y <= 10; y++) {
+		for (int x = 1; x <= 10; x++) {
+			COORD temp = { (SHORT)x,(SHORT)y };
+			gotoxy(Base_Point.X + 1, Base_Point.Y + y);
+			for (int i = 1; i < 11; i++)
+				std::cout << " .";
+		}
+	}
+}
+
+COORD Get_Base_Point()
+{
+	return COORD Base_P;
 }
