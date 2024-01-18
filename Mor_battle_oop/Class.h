@@ -1,7 +1,7 @@
 #pragma once
 #include<iostream>
 #include<Windows.h>
-#include <conio.h>
+//#include <conio.h>
 #include <vector>
 //#include <xkeycheck.h>
 #include "Ships.h"
@@ -37,7 +37,7 @@ public:
 
 };
 
-struct Coord {
+struct Coordd {
 	int X;
 	int Y;
 	bool Crash = false;
@@ -49,10 +49,10 @@ private:
 	
 protected:
 	COORD Base_Point{ 0,0 };
-	std::vector<Coord>Ship_Coords;
+	std::vector<Coordd>Ship_Coords;
 public:
-	Player(int X, int Y);
 	Player();
+	Player(int X, int Y);
 	~Player();
 	COORD Get_Base_Point() { return Base_Point; };
 	void Border_1();
@@ -69,7 +69,7 @@ public:
 	friend void Border_1();
 	//void Border_2();
 	//void Plean();
-	    ////void gotoxy(int x, int y);// override;
+	    //// удалить void gotoxy(int x, int y);// override;
 
 };
 

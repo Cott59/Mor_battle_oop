@@ -70,7 +70,8 @@
 //HANDLE console = GetStdHandle(STD_OUTPUT_HANDLE);
 //COORD CursorPosition;
 
-
+extern HANDLE console;
+extern COORD CursorPosition;
 
 void Ships::gotoXY(int x, int y)
 {

@@ -2,18 +2,21 @@
 #include<iostream>
 //#include<Windows.h>
 #include <conio.h>
-#include <algorithm>
+//#include <algorithm>
 
+extern HANDLE console;
+extern COORD CursorPosition;
 
+Player::Player()
+{
+}
 
 Player::Player(int X, int Y)
 {
 	Base_Point.X = X, Base_Point.Y = Y;
 }
 
-Player::Player()
-{
-}
+
 
 Player::~Player()
 {
