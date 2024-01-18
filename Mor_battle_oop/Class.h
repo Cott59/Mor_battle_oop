@@ -3,18 +3,19 @@
 #include<Windows.h>
 #include <conio.h>
 #include <vector>
-#include <xkeycheck.h>
+//#include <xkeycheck.h>
 #include "Ships.h"
 
 #define SCREEN_WIDTH 100
 #define SCREEN_HEIGHT 30
 
-
+HANDLE console = GetStdHandle(STD_OUTPUT_HANDLE);
+COORD CursorPosition = {};
 
 class DataInput {
 public:
-	HANDLE console = GetStdHandle(STD_OUTPUT_HANDLE);
-	COORD CursorPosition = {};
+	/*HANDLE console = GetStdHandle(STD_OUTPUT_HANDLE);
+	COORD CursorPosition = {};*/
 
     
 	void gotoxy(int x, int y);
@@ -36,6 +37,11 @@ public:
 
 };
 
+struct Coord {
+	int X;
+	int Y;
+	bool Crash = false;
+};
 
 class Player:public DataInput
 {
@@ -43,14 +49,9 @@ private:
 	
 protected:
 	COORD Base_Point{ 0,0 };
-	struct Coord {
-		int X;
-		int Y;
-		bool Crash = false;
-	};
 	std::vector<Coord>Ship_Coords;
 public:
-	Player(int X, int Y);// Player конструктор
+	Player(int X, int Y);
 	Player();
 	~Player();
 	COORD Get_Base_Point() { return Base_Point; };
@@ -68,6 +69,16 @@ public:
 	friend void Border_1();
 	//void Border_2();
 	//void Plean();
-	//void gotoxy(int x, int y);// override;
+	    ////void gotoxy(int x, int y);// override;
+
+};
+
+
+class Position_Ship
+{
+public:
+	bool Plain[11][11] = { false };
+	void ShowBorder();
+
 
 };

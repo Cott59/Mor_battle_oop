@@ -1,6 +1,7 @@
 #include "Ships.h"
 #include<iostream>
 #include"Class.h"
+//#include<Windows.h>
 
 //
 //
@@ -65,5 +66,34 @@
 //	gotoxy(P3.X, P3.Y); std::cout << 'X';
 //	gotoxy(P4.X, P4.Y); std::cout << 'X';
 //}
+
+//HANDLE console = GetStdHandle(STD_OUTPUT_HANDLE);
+//COORD CursorPosition;
+
+
+
+void Ships::gotoXY(int x, int y)
+{
+	CursorPosition.X = x;
+	CursorPosition.Y = y;
+	SetConsoleCursorPosition(console, CursorPosition);
+	
+}
+
+Kater::Kater(int X, int Y)
+{
+	Temp.X = X; Temp.Y = Y;
+}
+
+void Kater::ShowShip()
+{
+	gotoXY(P1.X, P1.Y); std::cout << 'X';
+}
+
+void Destroyer::ShowShip()
+{
+	gotoXY(P1.X, P1.Y); std::cout << 'X';
+	gotoXY(P2.X, P2.Y); std::cout << 'X';
+}
 
 

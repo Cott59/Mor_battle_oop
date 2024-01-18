@@ -1,9 +1,9 @@
 #include"Class.h"
 #include<iostream>
-#include<Windows.h>
+//#include<Windows.h>
 #include <conio.h>
 #include <algorithm>
-#include <iterator>
+
 
 
 Player::Player(int X, int Y)
@@ -177,4 +177,8 @@ void Player::Border_1() {
 //	}
 //}
 
+void Position_Ship::ShowBorder()
+{
+	
+}
 

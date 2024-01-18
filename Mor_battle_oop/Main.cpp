@@ -1,6 +1,6 @@
 #include<iostream>
 #include"Class.h"
-
+#include"Ships.h"
 
 
 int main() {
