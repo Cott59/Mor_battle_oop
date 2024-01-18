@@ -17,27 +17,9 @@ public:
 	COORD CursorPosition = {};
 
     
-	void gotoxy(int x, int y);
+	virtual void gotoxy(int x, int y);
 	void CheckPoint(int x, int y);
 
-
-};
-
-class Player {
-private:
-	COORD Base_Point;
-
-protected:
-	struct Coord {
-		int X;
-		int Y;
-		bool Crash = false;
-	};
-	std::vector<Coord>Ship_Coords;
-public:
-	Player(int X, int Y);
-	~Player();
-	COORD Get_Base_Point() { return Base_Point; }
 
 };
 
@@ -47,23 +29,45 @@ private:
 	bool PRK2 = false;
 	bool InCoord1 = true;
 	bool InCoord2 = false;
-	
+
 public:
-	
+
 	void inputData();
 
 };
 
 
-
-class Border_Play :public DataInput
+class Player:public DataInput
 {
+private:
+	
+protected:
+	COORD Base_Point;
+	struct Coord {
+		int X;
+		int Y;
+		bool Crash = false;
+	};
+	std::vector<Coord>Ship_Coords;
 public:
-	friend COORD Get_Base_Point();
-	void ShowBorder();
+	Player(int X, int Y);// Player конструктор
+	Player();
+	~Player();
+	COORD Get_Base_Point() { return Base_Point; };
 	void Border_1();
-	void Border_2();
-	void Plean();
+};
 
+
+class Border_Play :public DataInput, public Player
+{
+private:
+	
+public:
+	Border_Play();
+	void ShowBorder();
+	friend void Border_1();
+	//void Border_2();
+	//void Plean();
+	void gotoxy(int x, int y) override;
 
 };

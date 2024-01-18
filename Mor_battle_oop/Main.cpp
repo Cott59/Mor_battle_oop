@@ -13,8 +13,13 @@ int main() {
 	SetConsoleScreenBufferSize(out_handle, maxWindow);
 	SetConsoleWindowInfo(out_handle, true, &srctWindow);
 
-	Border_Play Brd;
-	Brd.ShowBorder();
+	Player player_1(8, 7);
+	Player player_2(42,7);
+	
+	player_1.Border_1();
+
+	
+	
 
 
 

@@ -5,9 +5,14 @@
 #include <algorithm>
 #include <iterator>
 
+
 Player::Player(int X, int Y)
 {
 	Base_Point.X = X, Base_Point.Y = Y;
+}
+
+Player::Player()
+{
 }
 
 Player::~Player()
@@ -84,12 +89,18 @@ void Menu::inputData()
 		system("cls");
 }
 
-void DataInput::gotoxy(int x, int y) {
+void Border_Play::gotoxy(int x, int y) {
 	CursorPosition.X = x;
 	CursorPosition.Y = y;
 	SetConsoleCursorPosition(console, CursorPosition);
 }
 void DataInput::CheckPoint(int x, int y)
+{
+}
+
+
+
+Border_Play::Border_Play()
 {
 }
 
@@ -130,43 +141,40 @@ void Border_Play::ShowBorder()
 
 
 
-void Border_Play::Border_1() {
-	gotoxy(Bp.X + 1, Bp.Y);
+void Player::Border_1() {
+	gotoxy(this->Base_Point.X + 1, this->Base_Point.Y);
 	for (int i = 1; i < 11; i++)
 		std::cout << ' ' << i;
 }
+//
+//void Border_Play::Border_2()
+//{
+//	for (int j = 1; j < 11; j++) {
+//		gotoxy(Base_Point.X, Base_Point.Y + j);
+//		switch (j) {
+//		case 1: std::cout << 'A'; break;
+//		case 2: std::cout << 'B'; break;
+//		case 3: std::cout << 'C'; break;
+//		case 4: std::cout << 'D'; break;
+//		case 5: std::cout << 'E'; break;
+//		case 6: std::cout << 'F'; break;
+//		case 7: std::cout << 'G'; break;
+//		case 8: std::cout << 'H'; break;
+//		case 9: std::cout << 'I'; break;
+//		case 10: std::cout << 'J'; break;
+//		}
+//	}
+//}
+//
+//void Border_Play::Plean() {
+//	for (int y = 1; y <= 10; y++) {
+//		for (int x = 1; x <= 10; x++) {
+//			COORD temp = { (SHORT)x,(SHORT)y };
+//			gotoxy(Base_Point.X + 1, Base_Point.Y + y);
+//			for (int i = 1; i < 11; i++)
+//				std::cout << " .";
+//		}
+//	}
+//}
 
-void Border_Play::Border_2()
-{
-	for (int j = 1; j < 11; j++) {
-		gotoxy(Bp.X, Bp.Y + j);
-		switch (j) {
-		case 1: std::cout << 'A'; break;
-		case 2: std::cout << 'B'; break;
-		case 3: std::cout << 'C'; break;
-		case 4: std::cout << 'D'; break;
-		case 5: std::cout << 'E'; break;
-		case 6: std::cout << 'F'; break;
-		case 7: std::cout << 'G'; break;
-		case 8: std::cout << 'H'; break;
-		case 9: std::cout << 'I'; break;
-		case 10: std::cout << 'J'; break;
-		}
-	}
-}
 
-void Border_Play::Plean() {
-	for (int y = 1; y <= 10; y++) {
-		for (int x = 1; x <= 10; x++) {
-			COORD temp = { (SHORT)x,(SHORT)y };
-			gotoxy(Base_Point.X + 1, Base_Point.Y + y);
-			for (int i = 1; i < 11; i++)
-				std::cout << " .";
-		}
-	}
-}
-
-COORD Get_Base_Point()
-{
-	return COORD Base_P;
-}
