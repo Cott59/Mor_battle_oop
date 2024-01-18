@@ -16,7 +16,7 @@ int main() {
 	Player player_1(8, 7);
 	Player player_2(42,7);
 	
-	player_1.Border_1();
+	//player_1.Border_1();
 
 	
 	

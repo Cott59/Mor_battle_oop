@@ -65,3 +65,5 @@
 //	gotoxy(P3.X, P3.Y); std::cout << 'X';
 //	gotoxy(P4.X, P4.Y); std::cout << 'X';
 //}
+
+

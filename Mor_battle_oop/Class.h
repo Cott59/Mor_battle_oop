@@ -17,7 +17,7 @@ public:
 	COORD CursorPosition = {};
 
     
-	virtual void gotoxy(int x, int y);
+	void gotoxy(int x, int y);
 	void CheckPoint(int x, int y);
 
 
@@ -42,7 +42,7 @@ class Player:public DataInput
 private:
 	
 protected:
-	COORD Base_Point;
+	COORD Base_Point{ 0,0 };
 	struct Coord {
 		int X;
 		int Y;
@@ -58,7 +58,7 @@ public:
 };
 
 
-class Border_Play :public DataInput, public Player
+class Border_Play : public Player //public DataInput
 {
 private:
 	
@@ -68,6 +68,6 @@ public:
 	friend void Border_1();
 	//void Border_2();
 	//void Plean();
-	void gotoxy(int x, int y) override;
+	//void gotoxy(int x, int y);// override;
 
 };
